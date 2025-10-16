@@ -1,15 +1,23 @@
-# Captcha Fetcher
+# Captcha Text Extractor
 
 ## Overview
-This web application fetches a captcha image from a specified URL and retrieves the text from it, displaying the result in a JSON format.
+The Captcha Text Extractor is a web application that allows users to upload a captcha image and extracts the text contained within the image using Tesseract.js. The extracted text is displayed in a JSON format.
 
 ## Setup
-1. Clone the repository to your local machine.
-2. Open `index.html` in a web browser.
+1. Download the `index.html` file.
+2. Open the file in a modern web browser.
 
 ## Usage
-- Click the "Fetch Captcha Text" button to load the captcha image and retrieve the captcha text.
-- The text will be displayed in a JSON format below the button.
+1. Click the "Choose File" button to upload a captcha image.
+2. Once the image is uploaded, it will be displayed on the screen.
+3. Click the "Extract Text" button to process the image and extract the text.
+4. The extracted text will be displayed below the image in a JSON format.
 
-## Notes
-- Replace `https://example.com/captcha` and `https://example.com/captcha/text` with the actual URLs for fetching the captcha image and text respectively.
+No server setup is needed, and the application runs entirely in the browser.
+
+## Improvements
+This is the first version of the application. Future versions may include enhancements such as:
+- Support for multiple languages.
+- Improved UI and error handling.
+- Ability to handle different captcha formats and types.
+```

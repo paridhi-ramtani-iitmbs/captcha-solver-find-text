@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Fetcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        img {
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Captcha Fetcher</h1>
+    <img id="captchaImage" src="" alt="Captcha Image" />
+    <button id="fetchCaptcha">Fetch Captcha Text</button>
+    <pre id="output"></pre>
+
+    <script>
+        async function fetchCaptchaImage() {
+            const response = await fetch('https://example.com/captcha'); // Replace with actual captcha URL
+            const blob = await response.blob();
+            const imgUrl = URL.createObjectURL(blob);
+            document.getElementById('captchaImage').src = imgUrl;
+        }
+
+        async function getCaptchaText() {
+            const response = await fetch('https://example.com/captcha/text'); // Replace with actual endpoint to get text
+            const data = await response.json();
+            document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+        }
+
+        document.getElementById('fetchCaptcha').addEventListener('click', async () => {
+            await fetchCaptchaImage();
+            await getCaptchaText();
+        });
+
+        // Initial load of captcha image
+        fetchCaptchaImage();
+    </script>
+</body>
+</html>
